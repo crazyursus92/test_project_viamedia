@@ -1,0 +1,177 @@
+.module-menu{
+  background-color: #fff;
+  &.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+}
+
+.menu{
+  max-height: 0;
+  overflow: hidden;
+  list-style: none;
+  transition: max-height .4s ease .05s;
+  margin-top: 10px;
+
+  @include breakpoint($tablet){
+    max-height: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    overflow: visible;
+  }
+
+  &.active{
+      height: auto;
+      max-height: 2000px;
+  }
+
+
+
+  &__item{
+
+    a{
+
+      @include fzRem(13);
+      line-height: toRem(47);
+      text-transform: uppercase;
+      position: relative;
+      padding-left: 25px;
+      border-bottom: 1px solid $c-border;
+      display: block;
+      background-color: #fff;
+
+      &:after{
+        content: '';
+        position: absolute;
+        display: block;
+        @include sprite($menu-arrow-right);
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+
+        @include breakpoint($tablet){
+          display: none;
+        }
+      }
+
+      @include breakpoint($tablet){
+        display: inline;
+        border: none !important;
+        padding: 0 15px;
+        background-color: transparent;
+      }
+
+      @include breakpoint($desktop){
+        @include fzRem(11);
+      }
+    }
+
+    &:first-child{
+
+        a{
+          border-top: 1px solid $c-border;
+        }
+    }
+    &.active{
+
+      &>a {
+
+        &:after{
+          @include sprite($menu-arrow-down);
+          right: 30px;
+        }
+      }
+    }
+  }
+
+  &__sub-menu{
+      max-height: 0;
+      overflow: hidden;
+      list-style: none;
+      transition: max-height .4s ease .05s, padding .25s ease .02s;
+
+      @include breakpoint($tablet){
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        border-top: 1px solid $c-border;
+      }
+
+      &.active{
+        height: auto;
+        max-height: 2000px;
+
+        @include breakpoint($tablet) {
+          padding: 5px calc((100% - 1024px)/2);
+        }
+      }
+
+      .fixed &.active{
+        border-bottom: 1px solid $c-border;
+      }
+
+      &__item{
+        display: none;
+
+        @include breakpoint($tablet){
+          display: block;
+        }
+
+        &.mobile{
+          display: block;
+        }
+
+        &.active{
+
+          a{
+            color: $c-font-black;
+          }
+        }
+
+        a{
+          background-color: #231f20;
+          color: $c-font-lgrey;
+          line-height: toRem(92);
+          @include breakpoint($tablet){
+            background-color: #fff;
+            color: $c-font-grey;
+            text-transform: none;
+            @include fzRem(11);
+            line-height: toRem(20);
+            padding: 0 10px;
+            white-space: nowrap;
+
+            &:hover{
+              color: $c-font-black;
+            }
+          }
+        }
+      }
+
+      &__img{
+        position: relative;
+        width: 106px;
+        float: left;
+        z-index: 10;
+        -webkit-background-size:cover;
+        background-size:cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 92px;
+        margin-right: 25px;
+
+        @include breakpoint($tablet){
+          display: none;
+        }
+      }
+  }
+}

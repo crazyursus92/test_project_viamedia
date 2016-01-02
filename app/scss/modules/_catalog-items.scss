@@ -1,0 +1,320 @@
+.catalog-items{
+
+  &.row{
+
+    .catalog-item{
+      position: relative;
+      @extend .clearfix;
+      padding: 25px 0 21px;
+      border-bottom: 1px solid $c-border;
+
+      @include breakpoint($tablet){
+        padding: 8px 14px 8px 16px;
+      }
+
+      .container{
+        @include breakpoint($desktop){
+          padding-left: 25px;
+        }
+      }
+
+      &__img{
+        @include pad(1);
+        @include breakpoint($tablet){
+          width: 245px;
+          float: left;
+          padding: 0;
+        }
+
+        img{
+          width: 100%;
+        }
+      }
+      
+      &__title{
+        text-transform: uppercase;
+        @include fzRem(14);
+        text-align: center;
+
+        @include breakpoint($tablet){
+          text-align: left;
+          margin-top: 0;
+          margin-bottom: 15px;
+        }
+
+        br{
+          display: none;
+        }
+      }
+      
+      &__desc{
+        margin-top: 15px;
+
+        @include breakpoint($tablet){
+          width: calc(100% - 408px);
+          float: left;
+          @include pad(.25);
+          height: 100%;
+          padding-bottom: 36px;
+          margin-top: 11px;
+        }
+      }
+      
+      &__properties{
+        display: none;
+        
+        @include breakpoint($tablet){
+          display: block;
+        }
+        
+        &-item{
+          display: block;
+          color: $c-font-grey;
+
+          @include breakpoint($tablet){
+            line-height: toRem(15);
+          }
+
+          &.article{
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      &__property{
+
+        &-name {
+          font-family: $font-bold;
+        }
+      }
+
+      &__price{
+        @include fzRem(18);
+        text-transform: uppercase;
+        font-family: $font-light;
+        text-align: center;
+        margin: 15px 0;
+        @include breakpoint($tablet){
+          margin: 0;
+          float: left;
+          position: absolute;
+          bottom: 19px;
+        }
+      }
+
+      &__info{
+        text-align: center;
+
+        @include breakpoint($tablet){
+          float: right;
+          width: 162px;
+          text-align: left;
+        }
+      }
+      
+      &__read-more{
+        background-color: $c-dark;
+        @include fzRem(14);
+        display: inline-block;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        line-height:toRem(25);
+        width: 160px;
+        @include breakpoint($tablet){
+          margin-top: 8px;
+          margin-bottom: 30px;
+          width: 162px;
+          line-height:toRem(28);
+        }
+      }
+
+      &__favorite{
+        display: none;
+        color: $c-font-grey;
+        text-decoration: underline;
+
+        @include breakpoint($tablet){
+          display: inline;
+        }
+      }
+
+      &__ask{
+        @extend .catalog-item__favorite;
+      }
+    }
+  }
+
+  &.block{
+
+    @include breakpoint($tablet){
+      @include pad(.25);
+      @include container();
+    }
+
+    @include breakpoint($desktop){
+      @include pad(.1);
+    }
+
+    .catalog-item{
+      position: relative;
+      @extend .clearfix;
+      padding: 25px 0 21px;
+      border-bottom: 1px solid $c-border;
+
+      @include breakpoint($tablet){
+        padding-top: 10px;
+        @include span(4);
+        border: none;
+      }
+
+      @include breakpoint($desktop){
+        padding-top: 10px;
+        @include span(3);
+      }
+
+      &:nth-child(3n+1){
+        @include breakpoint($tablet){
+          @include break();
+        }
+        @include breakpoint($desktop){
+          @include nobreak();
+        }
+      }
+
+      &:nth-child(4n+1){
+        @include breakpoint($desktop){
+          @include break();
+        }
+      }
+
+      &:nth-child(3n+3){
+        @include breakpoint($tablet){
+          @include span(4 last);
+
+        }
+
+        @include breakpoint($desktop){
+          @include span(3);
+        }
+      }
+
+      &:nth-child(4n+4){
+        @include breakpoint($desktop){
+          @include span(3 last);
+        }
+      }
+
+      &__img{
+        @include pad(1);
+        @include breakpoint($tablet){
+          @include pad(0);
+        }
+
+        img{
+          width: 100%;
+        }
+      }
+
+      &__title{
+        text-transform: uppercase;
+        @include fzRem(14);
+        text-align: center;
+        @include breakpoint($tablet){
+          padding-bottom: 20px;
+          border-bottom: 1px solid $c-border;
+        }
+
+        br{
+          display: none;
+
+          @include breakpoint($tablet){
+            display: block;
+          }
+        }
+      }
+
+      &__desc{
+        margin-top: 15px;
+        @include breakpoint($tablet){
+          margin-top: 11px;
+        }
+      }
+
+      &__properties{
+        display: none;
+        margin-top: 20px;
+        @include pad(1);
+        line-height: toRem(14);
+        @include breakpoint($tablet){
+          display: block;
+        }
+
+        &-item{
+          text-align: center;
+          display: block;
+          color: $c-font-grey;
+          &.article{
+            margin-bottom: 20px;
+            display: none;
+          }
+        }
+      }
+
+      &__property{
+
+        &-name{
+          display: none;
+          font-family: $font-bold;
+        }
+      }
+
+      &__price{
+        @include fzRem(18);
+        text-transform: uppercase;
+        font-family: $font-light;
+        text-align: center;
+        margin: 15px 0;
+        @include breakpoint($tablet){
+          margin: 15px 0;
+        }
+      }
+
+      &__info{
+        text-align: center;
+
+        @include breakpoint($tablet){
+
+        }
+      }
+
+      &__read-more{
+        background-color: $c-dark;
+        @include fzRem(14);
+        display: inline-block;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        line-height:toRem(25);
+        width: 160px;
+        @include breakpoint($tablet){
+
+        }
+      }
+
+      &__favorite{
+        display: none;
+        color: $c-font-grey;
+        text-decoration: underline;
+
+        @include breakpoint($tablet){
+
+        }
+      }
+
+      &__ask{
+        @extend .catalog-item__favorite;
+      }
+    }
+  }
+}

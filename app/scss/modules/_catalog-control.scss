@@ -1,0 +1,95 @@
+.catalog-control{
+  background-color: $c-dark;
+  color: $c-font-lgrey;
+  @include pad(.5);
+
+
+    @include breakpoint($tablet){
+      @include prefix(.46);
+      @include suffix(.25);
+    }
+
+    .container{
+
+      @include breakpoint($desktop){
+        @include prefix(.2);
+        @include suffix(.12);
+      }
+    }
+
+  a:hover{
+    color: #ececec;
+  }
+
+  &__filters{
+    text-align: center;
+    
+    @include breakpoint($tablet){
+      text-align: left;
+      float: left;
+    }
+  }
+
+  &__filter-start{
+    color: $c-font-lgrey;
+    line-height: toRem(30);
+    @include fzRem(11);
+    text-transform: uppercase;
+
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($plus);
+      margin-right: 10px;
+    }
+  }
+
+  &__layout{
+    display: none;
+
+    @include breakpoint($tablet){
+      float: right;
+      display: block;
+    }
+  }
+
+  &__show-all{
+    color: $c-font-lgrey;
+    line-height: toRem(30);
+    @include fzRem(11);
+    text-transform: uppercase;
+  }
+
+  &__rows{
+    display: inline-block;
+    @include sprite($layout-row);
+    position: relative;
+    top: 5px;
+    margin-right: 15px;
+    margin-left: 20px;
+
+    &:hover{
+      @include sprite($layout-row-hover);
+    }
+
+    &.active{
+      @include sprite($layout-row-hover);
+    }
+  }
+
+  &__block{
+    display: inline-block;
+    @include sprite($layout-grid);
+    position: relative;
+    top: 5px;
+
+    &:hover{
+      @include sprite($layout-grid-hover);
+    }
+
+    &.active{
+      @include sprite($layout-grid-hover);
+    }
+
+  }
+}

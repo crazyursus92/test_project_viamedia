@@ -1,0 +1,16 @@
+.category_description{
+  text-align: center;
+  padding: 0 0 23px;
+
+  .container{
+    @include pad(1.2);
+
+    @include breakpoint($tablet){
+      @include pad(1);
+    }
+
+    @include breakpoint($desktop){
+      @include pad(.2);
+    }
+  }
+}

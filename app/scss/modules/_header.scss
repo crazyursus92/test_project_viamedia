@@ -1,0 +1,160 @@
+.top-panel{
+
+  @include fzRem(11);
+  padding-top: 4px;
+
+  &__contact{
+    @include pre(.9);
+    padding-right: 12px;
+    color: $c-font-grey;
+    border-right:1px solid $c-border;
+    line-height: toRem(21);
+
+    @include breakpoint($tablet){
+      padding-right: 14px;
+      @include pre(.5);
+    }
+  }
+
+  &__phone{
+    padding-left: 12px;
+    color: $c-font-grey;
+    line-height: toRem(21);
+
+    @include breakpoint($tablet){
+      padding-left: 14px;
+    }
+  }
+
+  &__recall{
+    color: $c-font-black;
+    position: relative;
+    float: right;
+    line-height: toRem(21);
+    @include post(.9);
+    &:after{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      width: 100%;
+      border-bottom: 2px solid $c-border;
+    }
+    @include breakpoint($tablet){
+      @include post(0);
+      float: none;
+      margin-left: 14px;
+    }
+  }
+
+  &__signin{
+    display: none;
+    float: right;
+    line-height: toRem(21);
+    margin-right: 14px;
+    @include breakpoint($tablet){
+      display: inline;
+
+    }
+  }
+
+  &__input-field{
+    display: none;
+    position: relative;
+    @include span(2.23);
+    @include post(.6);
+
+    @include breakpoint($tablet){
+      display: inline;
+      float: right;
+
+    }
+    @include breakpoint($desktop){
+      @include span(1.75 last);
+      @include post(.3);
+
+    }
+  }
+
+  &__search{
+    width: 100%;
+
+    &-icon{
+      position: absolute;
+      @include sprite($search);
+      top: 6px;
+      right: 2px;
+    }
+  }
+}
+
+.header{
+
+  &-logo{
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+.mobile-control{
+  margin-top: 14px;
+
+  @include breakpoint($tablet){
+    display: none;
+  }
+
+  &__burger{
+    @include sprite($burger);
+    display: inline-block;
+    cursor: pointer;
+    margin: 4px 17px 0 23px;
+
+    &:hover{
+      @include sprite($burger-hover);
+    }
+  }
+
+  &__menu{
+    padding-left: 18px;
+    text-transform: uppercase;
+    border-left:1px solid $c-border;
+    line-height: toRem(25);
+  }
+
+  &__input-field{
+    position: relative;
+    float: right;
+    margin-right: 26px;
+  }
+
+  &__search{
+    position: absolute;
+    width: 0px;
+    padding: 0;
+    height: 25px;
+    margin: 0;
+    z-index: 10;
+    border:  solid $c-border;
+    border-width: 0 1px;
+    right: 30px;
+    transition: width .3s ease .01s;
+
+    &.active{
+      padding-left: 10px;
+      border: 2px  solid $c-border;
+      width: 60vw;
+    }
+  }
+
+  &__search-icon{
+    @include sprite($search);
+    display: inline-block;
+    margin-top: 6px;
+  }
+
+  &__signin{
+    float: right;
+    margin-right: 40px;
+    line-height: toRem(25);
+  }
+}

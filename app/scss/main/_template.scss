@@ -1,0 +1,55 @@
+html, body{
+  height: 100%;
+  font-family: $font;
+  font-size: $font-size;
+  color: black;
+  font-family: $font;
+}
+
+.container{
+  @include container();
+}
+
+strong{
+  font-weight: normal;
+  font-family: $font-bold;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+
+h1,
+h2,
+h3{
+  text-align: center;
+  font-family: $font-light;
+  font-weight:normal;
+}
+
+h1{
+  @include fzRem(30);
+  margin: 40px 0 20px;
+
+
+}
+
+h2{
+  @include fzRem(25);
+}
+
+h3{
+  @include fzRem(20);
+}
+
+p{
+  line-height: toRem(16);
+}

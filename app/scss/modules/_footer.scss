@@ -1,0 +1,79 @@
+.footer{
+
+   @include breakpoint($tablet){
+     border-top: 1px solid $c-border;
+   }
+
+   &__social{
+     text-align: center;
+     padding: 13px 0;
+     @include fzRem(11);
+     color: $c-font-grey;
+
+     @include breakpoint($tablet){
+       @include span(6 last);
+       text-align: right;
+       @include suffix(.35);
+     }
+
+     &__title{
+       display: none;
+       @include breakpoint($tablet){
+         display: inline;
+
+       }
+     }
+
+     &__facebook{
+       display: inline-block;
+       margin-left: 9px;
+       vertical-align: baseline;
+       @include sprite($facebook);
+       &:hover{
+         @include sprite($facebook-hover);
+       }
+     }
+
+     &__twitter{
+       @extend .footer__social__facebook;
+       @include sprite($twitter);
+
+       &:hover{
+         @include sprite($twitter-hover);
+       }
+     }
+
+     &__instagram{
+       @extend .footer__social__facebook;
+       @include sprite($insta);
+
+       &:hover{
+         @include sprite($insta-hover);
+       }
+     }
+
+     &__g-plus{
+       @extend .footer__social__facebook;
+       @include sprite($gplus);
+
+       &:hover{
+         @include sprite($gplus-hover);
+       }
+     }
+   }
+}
+
+.copy{
+  @include fzRem(11);
+  color: $c-font-grey;
+  text-align: center;
+  line-height: toRem(41);
+  border-bottom: 1px solid $c-border;
+
+  @include breakpoint($tablet){
+     @include span(6);
+    @include prefix(.5);
+    border-bottom: none;
+    text-align: left;
+  }
+}
